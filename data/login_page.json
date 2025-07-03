@@ -1,0 +1,12 @@
+{
+    "dashboardUrl": "https://demo-bank.vercel.app/pulpit.html",
+    "securityUrl": "https://demo-bank.vercel.app/bezpieczenstwo.html",
+    "emptyInputError": "pole wymagane",
+    "tooShortUsernameError": "identyfikator ma min. 8 znaków",
+    "tooShortPasswordError": "hasło ma min. 8 znaków",
+    "usernameTooltipTextPart1": "Wprowadź identyfikator otrzymany z banku lub alias - dodatkowy",
+    "usernameTooltipTextPart2": "własny identyfikator, samodzielnie zdefiniowany w Demobank online.",
+    "passwordTooltipTextPart1": "Wprowadź swoje hasło. Sprawdź, czy przycisk Caps Lock jest",
+    "passwordTooltipTextPart2": "włączony. Uwaga: 3-krotne wprowadzenie błędnego hasła spowoduje",
+    "passwordTooltipTextPart3": "zablokowanie dostępu do systemu."
+}
