@@ -44,6 +44,7 @@ interface PhoneTopUp {
     phoneTopUpCheckbox: Locator;
     phoneTopUpCheckboxError: Locator;
     phoneTopUpButton: Locator;
+    phoneTopUpSuccessDialog: Locator;
 }
 
 interface FinanceManager {
@@ -134,6 +135,7 @@ export class DashboardPage {
         const LOAN_ROW = '#aggregation_list > section:nth-child(5) > div.dashboard-list > article:nth-child(1)';
         const DEBIT_ROW = '#aggregation_list > section:nth-child(5) > div.dashboard-list > article:nth-child(2)';
         const ASSISTANCE_INSURANCE_ROW = '#aggregation_list > section:nth-child(6) > div.dashboard-list > article';
+        const DIV_ROW_ACCOUNT_HEADER = ' > div.row.account-header.box-white.table-alike'
 
         function DIV_ROW_NTH_CHILD(n: number): string {
             return ` > div.row.account-details.hide > div > div:nth-child(${n})`
@@ -184,30 +186,31 @@ export class DashboardPage {
         this.phoneTopUp.phoneTopUpCheckbox = page.locator('#uniform-widget_1_topup_agreement');
         this.phoneTopUp.phoneTopUpCheckboxError = page.locator('#error_widget_1_topup_agreement');
         this.phoneTopUp.phoneTopUpButton = page.locator('#execute_phone_btn');
+        this.phoneTopUp.phoneTopUpSuccessDialog = page.locator('div.ui-dialog');
 
         this.financeManager.financeManagerBox = page.locator('form[action="ajax_pulpit_manager_finansowy_success.json"]');
         this.financeManager.financeManagerDropdown = page.locator('select[data-testid="financial-manager-select"]');
         this.financeManager.financeManagerChart = page.locator('#widget_financial_manager_1');
 
         this.savingsAccounts.savingsAccountsHeader = page.locator('#aggregation_list > section:nth-child(1) > h1');
-        this.savingsAccounts.savingsAccountsRow = page.locator(SAVINGS_ACCOUNTS_ROW);
+        this.savingsAccounts.savingsAccountsRow = page.locator(SAVINGS_ACCOUNTS_ROW + DIV_ROW_ACCOUNT_HEADER);
         this.savingsAccounts.savingsAccountTypeRow = page.locator(SAVINGS_ACCOUNTS_ROW + DIV_ROW_NTH_CHILD(1));
         this.savingsAccounts.savingsAccountPercentageRow = page.locator(SAVINGS_ACCOUNTS_ROW + DIV_ROW_NTH_CHILD(2));
 
         this.deposit.depositsHeader = page.locator('#aggregation_list > section:nth-child(2) > h1');
-        this.deposit.depositsRow = page.locator(DEPOSIT_ROW);
+        this.deposit.depositsRow = page.locator(DEPOSIT_ROW + DIV_ROW_ACCOUNT_HEADER);
         this.deposit.depositsTypeRow = page.locator(DEPOSIT_ROW + DIV_ROW_NTH_CHILD(1));
         this.deposit.depositsTimeRow = page.locator(DEPOSIT_ROW + DIV_ROW_NTH_CHILD(2));
         this.deposit.depositsPercentageRow = page.locator(DEPOSIT_ROW + DIV_ROW_NTH_CHILD(3));
 
         this.debitCard.debitCardsHeader = page.locator('#aggregation_list > section:nth-child(3) > h1');
-        this.debitCard.debitCardsRow = page.locator(DEBIT_CARDS_ROW);
+        this.debitCard.debitCardsRow = page.locator(DEBIT_CARDS_ROW + DIV_ROW_ACCOUNT_HEADER);
         this.debitCard.debitCardNumberRow = page.locator(DEBIT_CARDS_ROW + DIV_ROW_NTH_CHILD(1));
         this.debitCard.debitCardStatusRow = page.locator(DEBIT_CARDS_ROW + DIV_ROW_NTH_CHILD(2));
         this.debitCard.debitCardAccountRow = page.locator(DEBIT_CARDS_ROW + DIV_ROW_NTH_CHILD(3));
 
         this.creditCard.creditCardsHeader = page.locator('#aggregation_list > section:nth-child(4) > h1');
-        this.creditCard.creditCardsRow = page.locator(CREDIT_CARDS_ROW);
+        this.creditCard.creditCardsRow = page.locator(CREDIT_CARDS_ROW + DIV_ROW_ACCOUNT_HEADER);
         this.creditCard.creditCardNumberRow = page.locator(CREDIT_CARDS_ROW + DIV_ROW_NTH_CHILD(1));
         this.creditCard.creditCardStatusRow = page.locator(CREDIT_CARDS_ROW + DIV_ROW_NTH_CHILD(2));
         this.creditCard.creditCardRepaymentNowRow = page.locator(CREDIT_CARDS_ROW + DIV_ROW_NTH_CHILD(3));
@@ -216,17 +219,17 @@ export class DashboardPage {
         this.creditCard.creditCardPaymentDeadlineRow = page.locator(CREDIT_CARDS_ROW + DIV_ROW_NTH_CHILD(6));
 
         this.loans.loansHeader = page.locator('#aggregation_list > section:nth-child(5) > h1');
-        this.loans.loanRow = page.locator(LOAN_ROW);
+        this.loans.loanRow = page.locator(LOAN_ROW + DIV_ROW_ACCOUNT_HEADER);
         this.loans.loanNearestPaymentDateRow = page.locator(LOAN_ROW + DIV_ROW_NTH_CHILD(1));
         this.loans.loanNearestPaymentAmountRow = page.locator(LOAN_ROW + DIV_ROW_NTH_CHILD(2));
         this.loans.loanAccountNumberRow = page.locator(LOAN_ROW + DIV_ROW_NTH_CHILD(3));
-        this.loans.debitRow = page.locator(DEBIT_ROW);
+        this.loans.debitRow = page.locator(DEBIT_ROW + DIV_ROW_ACCOUNT_HEADER);
         this.loans.debitMinimumPaymentRow = page.locator(DEBIT_ROW + DIV_ROW_NTH_CHILD(1));
         this.loans.debitAccountNumberRow = page.locator(DEBIT_ROW + DIV_ROW_NTH_CHILD(2));
         this.loans.debitAmountRow = page.locator(DEBIT_ROW + DIV_ROW_NTH_CHILD(3));
 
         this.insurance.insuranceHeader = page.locator('#aggregation_list > section:nth-child(6) > h1');
-        this.insurance.assistanceInsuranceRow = page.locator(ASSISTANCE_INSURANCE_ROW);
+        this.insurance.assistanceInsuranceRow = page.locator(ASSISTANCE_INSURANCE_ROW + DIV_ROW_ACCOUNT_HEADER);
         this.insurance.assistanceDetailsRow = page.locator(ASSISTANCE_INSURANCE_ROW + DIV_ROW_NTH_CHILD(1));
         this.insurance.assistanceCompanyRow = page.locator(ASSISTANCE_INSURANCE_ROW + DIV_ROW_NTH_CHILD(2));
         this.insurance.assistanceInsuredRow = page.locator(ASSISTANCE_INSURANCE_ROW + DIV_ROW_NTH_CHILD(3));
