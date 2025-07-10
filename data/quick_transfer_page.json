@@ -1,0 +1,8 @@
+{
+    "receiver": "Chuck Demobankowy",
+    "amount": "1250,00",
+    "title": "Tytuł przelewu",
+    "errorText": "pole wymagane",
+    "tooltipMessagePart1": "widżet umożliwia zlecenie przelewu zwykłego do jednego ze",
+    "tooltipMessagePart2": "zdefiniowanych odbiorców"
+}

@@ -79,7 +79,7 @@ test('quick transfer on dashboard should be working', async ({page}) => {
     await dashboardPage.quickTransfer.quickTransferButton.click();
     await expect(dashboardPage.quickTransfer.quickTransferSuccessDialog).toBeVisible();
     await expect(dashboardPage.quickTransfer.quickTransferSuccessDialog).toContainText(dashboardPageData.quickTransferReceiverOption);
-})
+});
 
 test('there are error messages for quick transfer with empty fields', async ({page}) => {
     const loginPage = new LoginPage(page);
@@ -93,7 +93,7 @@ test('there are error messages for quick transfer with empty fields', async ({pa
     await expect(dashboardPage.quickTransfer.quickTransferAmountError).toHaveText(dashboardPageData.mandatoryField);
     await expect(dashboardPage.quickTransfer.quickTransferTitleError).toBeVisible();
     await expect(dashboardPage.quickTransfer.quickTransferTitleError).toHaveText(dashboardPageData.mandatoryField);
-})
+});
 
 test('last transactions section should be visible', async ({page}) => {
     const loginPage = new LoginPage(page);
@@ -101,7 +101,7 @@ test('last transactions section should be visible', async ({page}) => {
     await loginPage.goto();
     await loginPage.login(generateRandomWord(8), generateRandomWord(8));
     await expect(dashboardPage.lastTransactionsBox).toBeVisible();
-})
+});
 
 test('phone top up should be working', async ({page}) => {
     const loginPage = new LoginPage(page);
@@ -115,7 +115,7 @@ test('phone top up should be working', async ({page}) => {
     await expect(dashboardPage.phoneTopUp.phoneTopUpSuccessDialog).toBeVisible();
     await expect(dashboardPage.phoneTopUp.phoneTopUpSuccessDialog).toContainText(dashboardPageData.phoneTopUpAmount);
     await expect(dashboardPage.phoneTopUp.phoneTopUpSuccessDialog).toContainText(dashboardPageData.phoneTopUpOption);
-})
+});
 
 test('there are error messages for empty fields in phone top up', async ({page}) => {
     const loginPage = new LoginPage(page);
@@ -129,7 +129,7 @@ test('there are error messages for empty fields in phone top up', async ({page})
     await expect(dashboardPage.phoneTopUp.phoneTopUpAmountError).toHaveText(dashboardPageData.mandatoryField);
     await expect(dashboardPage.phoneTopUp.phoneTopUpCheckboxError).toBeVisible();
     await expect(dashboardPage.phoneTopUp.phoneTopUpCheckboxError).toHaveText(dashboardPageData.mandatoryField);
-})
+});
 
 test('finance manager should be working', async ({page}) => {
     const loginPage = new LoginPage(page);
@@ -139,7 +139,7 @@ test('finance manager should be working', async ({page}) => {
     await expect(dashboardPage.financeManager.financeManagerBox).toBeVisible();
     await dashboardPage.financeManager.financeManagerDropdown.selectOption(dashboardPageData.financeManagerOption);
     await expect(dashboardPage.financeManager.financeManagerChart).toContainText(dashboardPageData.financeManagerChartValue);
-})
+});
 
 test('savings accounts should be expandable', async ({page}) => {
     const loginPage = new LoginPage(page);
@@ -155,7 +155,7 @@ test('savings accounts should be expandable', async ({page}) => {
     await expect(dashboardPage.savingsAccounts.savingsAccountPercentageRow).toContainText(dashboardPageData.savingsAccountsPercentageValue);
     await dashboardPage.savingsAccounts.savingsAccountsRow.click();
     await expect(dashboardPage.savingsAccounts.savingsAccountTypeRow).not.toBeInViewport();
-})
+});
 
 test('deposits accounts should be expandable', async ({page}) => {
     const loginPage = new LoginPage(page);
@@ -174,7 +174,7 @@ test('deposits accounts should be expandable', async ({page}) => {
     await expect(dashboardPage.deposit.depositsPercentageRow).toContainText(dashboardPageData.depositsPercentageValue);
     await dashboardPage.deposit.depositsRow.click();
     await expect(dashboardPage.deposit.depositsTypeRow).not.toBeInViewport();
-})
+});
 
 test('debit cards should be expandable', async ({page}) => {
     const loginPage = new LoginPage(page);
@@ -193,7 +193,7 @@ test('debit cards should be expandable', async ({page}) => {
     await expect(dashboardPage.debitCard.debitCardAccountRow).toContainText(dashboardPageData.debitCardAccountValue);
     await dashboardPage.debitCard.debitCardsRow.click();
     await expect(dashboardPage.debitCard.debitCardNumberRow).not.toBeInViewport();
-})
+});
 
 test('credit cards should be expandable', async ({page}) => {
     const loginPage = new LoginPage(page);
@@ -221,7 +221,7 @@ test('credit cards should be expandable', async ({page}) => {
     await expect(dashboardPage.creditCard.creditCardPaymentDeadlineRow).toContainText(dashboardPageData.creditCardPaymentDeadlineValue);
     await dashboardPage.creditCard.creditCardsRow.click();
     await expect(dashboardPage.creditCard.creditCardNumberRow).not.toBeInViewport();
-})
+});
 
 test('loans should be expandable', async ({page}) => {
     const loginPage = new LoginPage(page);
@@ -252,7 +252,7 @@ test('loans should be expandable', async ({page}) => {
     await expect(dashboardPage.loans.debitAmountRow).toContainText(dashboardPageData.debitAmountValue);
     await dashboardPage.loans.debitRow.click();
     await expect(dashboardPage.loans.debitMinimumPaymentRow).not.toBeInViewport();
-})
+});
 
 test('insurances should be expandable', async ({page}) => {
     const loginPage = new LoginPage(page);
@@ -274,7 +274,7 @@ test('insurances should be expandable', async ({page}) => {
     await expect(dashboardPage.insurance.assistanceAccountRow).toContainText(dashboardPageData.insuranceAccountValue);
     await dashboardPage.insurance.assistanceInsuranceRow.click();
     await expect(dashboardPage.insurance.assistanceDetailsRow).not.toBeInViewport();
-})
+});
 
 test('quick transfer category should transfer user to quick transfer page', async ({page}) => {
     const loginPage = new LoginPage(page);
@@ -283,7 +283,7 @@ test('quick transfer category should transfer user to quick transfer page', asyn
     await loginPage.login(generateRandomWord(8), generateRandomWord(8));
     await dashboardPage.categories.quickTransferCategory.click();
     await expect(page).toHaveURL(dashboardPageData.quickTransferUrl);
-})
+});
 
 test('phone top up category should transfer user to phone top up page', async ({page}) => {
     const loginPage = new LoginPage(page);
@@ -292,7 +292,7 @@ test('phone top up category should transfer user to phone top up page', async ({
     await loginPage.login(generateRandomWord(8), generateRandomWord(8));
     await dashboardPage.categories.phoneTopUpCategory.click();
     await expect(page).toHaveURL(dashboardPageData.phoneTopUpUrl);
-})
+});
 
 test('finance manager category should transfer user to finance manager page', async ({page}) => {
     const loginPage = new LoginPage(page);
@@ -301,7 +301,7 @@ test('finance manager category should transfer user to finance manager page', as
     await loginPage.login(generateRandomWord(8), generateRandomWord(8));
     await dashboardPage.categories.financeManagerCategory.click();
     await expect(page).toHaveURL(dashboardPageData.financeManagerUrl);
-})
+});
 
 test('personal accounts category should transfer user to personal accounts page', async ({page}) => {
     const loginPage = new LoginPage(page);
@@ -310,7 +310,7 @@ test('personal accounts category should transfer user to personal accounts page'
     await loginPage.login(generateRandomWord(8), generateRandomWord(8));
     await dashboardPage.categories.personalAccountsCategory.click();
     await expect(page).toHaveURL(dashboardPageData.personalAccountsUrl);
-})
+});
 
 test('payments category should transfer user to payments page', async ({page}) => {
     const loginPage = new LoginPage(page);
@@ -319,7 +319,7 @@ test('payments category should transfer user to payments page', async ({page}) =
     await loginPage.login(generateRandomWord(8), generateRandomWord(8));
     await dashboardPage.categories.paymentsCategory.click();
     await expect(page).toHaveURL(dashboardPageData.paymentsUrl);
-})
+});
 
 test('reports category should transfer user to reports page', async ({page}) => {
     const loginPage = new LoginPage(page);
@@ -328,7 +328,7 @@ test('reports category should transfer user to reports page', async ({page}) => 
     await loginPage.login(generateRandomWord(8), generateRandomWord(8));
     await dashboardPage.categories.reportsCategory.click();
     await expect(page).toHaveURL(dashboardPageData.reportsUrl);
-})
+});
 
 test('reports iframe category should transfer user to reports iframe page', async ({page}) => {
     const loginPage = new LoginPage(page);
@@ -337,7 +337,7 @@ test('reports iframe category should transfer user to reports iframe page', asyn
     await loginPage.login(generateRandomWord(8), generateRandomWord(8));
     await dashboardPage.categories.reportsIFrameCategory.click();
     await expect(page).toHaveURL(dashboardPageData.reportsIframeUrl);
-})
+});
 
 test('transfer generate category should transfer user to transfer generate page', async ({page}) => {
     const loginPage = new LoginPage(page);
@@ -346,7 +346,7 @@ test('transfer generate category should transfer user to transfer generate page'
     await loginPage.login(generateRandomWord(8), generateRandomWord(8));
     await dashboardPage.categories.transferGenerateCategory.click();
     await expect(page).toHaveURL(dashboardPageData.transferGenerateUrl);
-})
+});
 
 test('charts category should transfer user to charts page', async ({page}) => {
     const loginPage = new LoginPage(page);
@@ -355,7 +355,7 @@ test('charts category should transfer user to charts page', async ({page}) => {
     await loginPage.login(generateRandomWord(8), generateRandomWord(8));
     await dashboardPage.categories.chartsCategory.click();
     await expect(page).toHaveURL(dashboardPageData.chartsUrl);
-})
+});
 
 test('datatables category should transfer user to datatables page', async ({page}) => {
     const loginPage = new LoginPage(page);
@@ -364,7 +364,7 @@ test('datatables category should transfer user to datatables page', async ({page
     await loginPage.login(generateRandomWord(8), generateRandomWord(8));
     await dashboardPage.categories.dataTablesCategory.click();
     await expect(page).toHaveURL(dashboardPageData.datatablesUrl);
-})
+});
 
 test('settings category should transfer user to settings page', async ({page}) => {
     const loginPage = new LoginPage(page);
@@ -373,4 +373,4 @@ test('settings category should transfer user to settings page', async ({page}) =
     await loginPage.login(generateRandomWord(8), generateRandomWord(8));
     await dashboardPage.categories.settingsCategory.click();
     await expect(page).toHaveURL(dashboardPageData.settingsUrl);
-})
+});
